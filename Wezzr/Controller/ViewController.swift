@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var weatherManager = WeatherManager()
     var locationManager = CLLocationManager()
     
-    let data = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let data = ["day1","day2","day3"]
     
 //MARK: - Main Functionality
     override func viewDidLoad() {
@@ -108,6 +108,18 @@ extension ViewController: WeatherManagerDelegate {
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
+        title.text = "Forecast for 3 days:"
+        title.font = .boldSystemFont(ofSize: 17)
+        header.addSubview(title)
+        
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.sectionIndexMinimumDisplayRowCount = data.count
         return data.count

@@ -77,28 +77,32 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iHf-qg-kjy">
-                                        <rect key="frame" x="117.33333333333334" y="206.33333333333334" width="100.33333333333334" height="117.66666666666666"/>
+                                        <rect key="frame" x="117.33333333333334" y="206.33333333333334" width="100.33333333333334" height="76.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkG-QL-hMb">
-                                                <rect key="frame" x="0.0" y="28.999999999999972" width="43.666666666666664" height="60"/>
+                                                <rect key="frame" x="0.0" y="8.3333333333333428" width="43.666666666666664" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eN-2c-USq">
-                                                <rect key="frame" x="47.666666666666657" y="28.999999999999972" width="52.666666666666657" height="60"/>
+                                                <rect key="frame" x="47.666666666666657" y="8.3333333333333428" width="52.666666666666657" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jRJ-rk-d35">
-                                        <rect key="frame" x="10" y="334" width="315" height="400"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-Nd-r9A">
+                                        <rect key="frame" x="47.666666666666686" y="293" width="240" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="400" id="Pfe-Fp-a21"/>
+                                            <constraint firstAttribute="height" constant="150" id="qQt-3x-tk0"/>
                                         </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jRJ-rk-d35">
+                                        <rect key="frame" x="10" y="453" width="315" height="281"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="50" id="8wC-6M-2tv" customClass="ForecastCell" customModule="Wezzr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="24.333333969116211" width="315" height="50"/>
