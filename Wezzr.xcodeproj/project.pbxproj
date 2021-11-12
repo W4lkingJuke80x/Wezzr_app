@@ -68,7 +68,6 @@
 		F27A506327379DDD00090034 /* Wezzr */ = {
 			isa = PBXGroup;
 			children = (
-				F2F4C52E2737CCB500CA3100 /* Spinner.swift */,
 				F27A50782737A72400090034 /* Model */,
 				F27A50792737A72A00090034 /* View */,
 				F27A507A2737A72F00090034 /* Controller */,
@@ -93,6 +92,7 @@
 		F27A50792737A72A00090034 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2F4C52E2737CCB500CA3100 /* Spinner.swift */,
 				F27A506A27379DDD00090034 /* Main.storyboard */,
 				F27A506F27379DDF00090034 /* LaunchScreen.storyboard */,
 			);
