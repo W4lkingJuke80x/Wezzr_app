@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F26D9BC2273DD3A500EF9830 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D9BC1273DD3A500EF9830 /* ForecastCell.swift */; };
 		F27A506527379DDD00090034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A506427379DDD00090034 /* AppDelegate.swift */; };
 		F27A506727379DDD00090034 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A506627379DDD00090034 /* SceneDelegate.swift */; };
 		F27A506927379DDD00090034 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A506827379DDD00090034 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F26D9BC1273DD3A500EF9830 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		F27A506127379DDD00090034 /* Wezzr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wezzr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27A506427379DDD00090034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27A506627379DDD00090034 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +86,6 @@
 				F2F4C5282737C36400CA3100 /* WeatherModel.swift */,
 				F2F4C52A2737C46B00CA3100 /* WeatherManager.swift */,
 				F2F4C52C2737C48300CA3100 /* WeatherData.swift */,
-				F2E7F44F2739AA2C00EE3363 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +102,8 @@
 		F27A507A2737A72F00090034 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2E7F44F2739AA2C00EE3363 /* Alert.swift */,
+				F26D9BC1273DD3A500EF9830 /* ForecastCell.swift */,
 				F27A506827379DDD00090034 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -180,6 +183,7 @@
 				F27A506527379DDD00090034 /* AppDelegate.swift in Sources */,
 				F2F4C52B2737C46B00CA3100 /* WeatherManager.swift in Sources */,
 				F2F4C52F2737CCB500CA3100 /* Spinner.swift in Sources */,
+				F26D9BC2273DD3A500EF9830 /* ForecastCell.swift in Sources */,
 				F2F4C5292737C36400CA3100 /* WeatherModel.swift in Sources */,
 				F2F4C52D2737C48300CA3100 /* WeatherData.swift in Sources */,
 				F2E7F4502739AA2C00EE3363 /* Alert.swift in Sources */,

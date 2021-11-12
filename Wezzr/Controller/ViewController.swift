@@ -15,9 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherStatus: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var forecastTable: UITableView!
     
     var weatherManager = WeatherManager()
     var locationManager = CLLocationManager()
+    
+    let data = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
 //MARK: - Main Functionality
     override func viewDidLoad() {
@@ -25,6 +28,8 @@ class ViewController: UIViewController {
         //Showing activity indicator while initial data loads up
         self.showSpinner()
         
+        forecastTable.delegate = self
+        forecastTable.dataSource = self
         weatherManager.delegate = self
         locationManager.delegate = self
         searchTextField.delegate = self
@@ -96,7 +101,26 @@ extension ViewController: WeatherManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
+        Alert.showBasicAlert(on: self, with: "Oops...", message: "Something went wrong. Please, try again later.")
         print(error)
+    }
+}
+
+//MARK: - UITableViewDataSource, UITableViewDelegate
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.sectionIndexMinimumDisplayRowCount = data.count
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") as! ForecastCell
+        
+        cell.dayLabel?.text = data[indexPath.row]
+        cell.icon?.image = UIImage(systemName: "cloud.fill")
+        cell.tempLabel?.text = "24"
+        
+        return cell
     }
 }
 

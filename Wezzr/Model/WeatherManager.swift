@@ -15,7 +15,7 @@ protocol WeatherManagerDelegate {
 }
 
 struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=3bd61a0b4be33b251d2172e3a57cb798a&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=3bd61a0b4be33b251d2172e3a57cb79a&units=metric"
     
     var delegate: WeatherManagerDelegate?
     
@@ -41,7 +41,6 @@ struct WeatherManager {
                     self.delegate?.didFailWithError(error: error!)
                     return
                 } else {
-                    Alert.showBasicAlert(on: vcForAlert, with: "Oops...", message: "Something went wrong. Please, try again later.")
                 }
                 if let safeData = data {
                     if let weather = self.parseJSON(safeData) {
