@@ -15,21 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherStatus: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
-    @IBOutlet weak var forecastTable: UITableView!
+    @IBOutlet weak var customForecastView1: ForecastView!
+    @IBOutlet weak var customForecastView2: ForecastView!
     
     var weatherManager = WeatherManager()
     var locationManager = CLLocationManager()
     
-    let data = ["day1","day2","day3"]
+    var receivedData: WeatherModel? = nil
     
 //MARK: - Main Functionality
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Showing activity indicator while initial data loads up
         self.showSpinner()
-        
-        forecastTable.delegate = self
-        forecastTable.dataSource = self
+
         weatherManager.delegate = self
         locationManager.delegate = self
         searchTextField.delegate = self
@@ -42,7 +42,6 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         self.showSpinner()
     }
-    
 }
 
 //MARK: - UITextFieldDelegate
@@ -94,9 +93,18 @@ extension ViewController: CLLocationManagerDelegate {
 extension ViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
-            self.tempLabel.text = weather.temperatureString
+            self.tempLabel.text = weather.temperature
             self.cityLabel.text = weather.cityName
-            self.weatherStatus.text = weather.conditionDescription.firstUppercased
+            self.weatherStatus.text = weather.conditionDescription
+            
+            //Forecast: Day 1
+            self.customForecastView1.day = weather.forecastDate[0]
+            self.customForecastView1.icon = UIImage(systemName: weather.forecastIcon[0])
+            self.customForecastView1.temperature = String(weather.forecastTemp[0])
+            //Forecast: Day 2
+            self.customForecastView2.day = weather.forecastDate[1]
+            self.customForecastView2.icon = UIImage(systemName: weather.forecastIcon[1])
+            self.customForecastView2.temperature = String(weather.forecastTemp[1])
         }
     }
     
@@ -104,39 +112,4 @@ extension ViewController: WeatherManagerDelegate {
         Alert.showBasicAlert(on: self, with: "Oops...", message: "Something went wrong. Please, try again later.")
         print(error)
     }
-}
-
-//MARK: - UITableViewDataSource, UITableViewDelegate
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        
-        let title = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
-        title.text = "Forecast for 3 days:"
-        title.font = .boldSystemFont(ofSize: 17)
-        header.addSubview(title)
-        
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.sectionIndexMinimumDisplayRowCount = data.count
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") as! ForecastCell
-        
-        cell.dayLabel?.text = data[indexPath.row]
-        cell.icon?.image = UIImage(systemName: "cloud.fill")
-        cell.tempLabel?.text = "24"
-        
-        return cell
-    }
-}
-
-//MARK: - Uppercasing
-extension StringProtocol {
-    var firstUppercased: String { return prefix(1).uppercased() + dropFirst() } //To uppercase condition status of current weather
 }
